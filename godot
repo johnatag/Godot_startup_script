@@ -1,0 +1,11 @@
+#!/bin/sh
+
+GODOT_VERSION=64 #32 or 64 bit
+
+PATH_TO_GODOT_EXECUTABLE=$HOME/godot/app/[Godot_v]* #The PATH to the Godot Executable
+cd $PATH_TO_GODOT_EXECUTABLE #change to the directory where the Godot execuable is located
+
+GODOT_EXECUTABLE=*.$GODOT_VERSION #the godot executable will be the one that finishes with $GODOT_VERSION
+./$GODOT_EXECUTABLE& #execute the executable and lauches it in another process
+
+
