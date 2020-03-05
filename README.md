@@ -1,7 +1,7 @@
 # Godot_startup_script
 ## A Bash script to startup Godot
 
-    This script will also facilitate the creation of a .desktop launcher in GNOME and other freedesktop.org-compliant desktops since this script should work even if we update Godot to a newer version
+This script will also facilitate the creation of a .desktop launcher in GNOME and other freedesktop.org-compliant desktops since this script should work even if we update Godot to a newer version
 
 
 ```Bash
