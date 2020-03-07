@@ -1,11 +1,19 @@
 #!/bin/sh
 
 GODOT_VERSION=64 #32 or 64 bit
+MONO_VERSION=true
 
-PATH_TO_GODOT_EXECUTABLE=$HOME/godot/app/[Godot_v]* #The PATH to the Godot Executable
+if $MONO_VERSION;
+then
+    PATH_TO_GODOT_EXECUTABLE=$HOME/godot/app/[Godot_v]* #The PATH to the Godot Executable
+else
+    PATH_TO_GODOT_EXECUTABLE=$HOME/godot/app #The PATH to the Godot Executable
+fi
+
 cd $PATH_TO_GODOT_EXECUTABLE #change to the directory where the Godot execuable is located
 
 GODOT_EXECUTABLE=*.$GODOT_VERSION #the godot executable will be the one that finishes with $GODOT_VERSION
+
+chmod +x $GODOT_EXECUTABLE #gives the permission to run
+
 ./$GODOT_EXECUTABLE& #execute the executable and lauches it in another process
-
-
