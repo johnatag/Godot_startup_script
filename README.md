@@ -52,4 +52,4 @@ GODOT_EXECUTABLE=*.$GODOT_VERSION #the godot executable will be the one that fin
 (Way #2):
 - Create a .desktop file manually (go see https://developer.gnome.org/integration-guide/stable/desktop-files.html.en)
 
-![Godot Startup GIF](Godot_startup.gif)
+![Godot Startup GIF](gif/Godot_startup.gif)
