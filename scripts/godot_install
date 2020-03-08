@@ -1,0 +1,25 @@
+#!/bin/sh
+
+############################# SETTINGS ###############################
+
+os=linux # linux for linux | windows for windows | osx for macos
+version=64 # 32 or 64 bit
+mono_version=true #mono version or not (true or false)
+downloaded_filename=Godot_vXX.zip
+godot_installed_path=$HOME/godot/app
+
+#####################################################################
+
+#Downloads ans extracts the files
+echo "Downloading Godot..."
+python3 godot_downloader.py $os $version $mono_version $downloaded_filename
+
+#Removes the zip files and $godot_installed_path directory
+echo "Removing the downloaded zip file..."
+rm -f $downloaded_filename
+echo "Replacing the old files with the new ones..."
+rm -r $godot_installed_path
+mkdir $godot_installed_path
+#moves the file to a destination
+mv Godot_v* $godot_installed_path
+echo "Done!"
