@@ -62,10 +62,10 @@ godot_installed_path=$HOME/godot/app
 ```
 7. Execute the scripts and Have fun!
 ```Bash
-#TO INSTALL LATEST VERSION OF GODOT TYPE IN YOUR TERMINAL
+#TO INSTALL LATEST STABLE VERSION OF GODOT 
 godot_install
 
-#TO LAUNCH GODOT TYPE IN YOUR TERMINAL
+#TO LAUNCH GODOT 
 godot
 ```
 
