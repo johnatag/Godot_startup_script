@@ -1,21 +1,57 @@
 #!/bin/sh
 
-version=64 #32 or 64 bit
-mono_version=true #true or false otherwise will crash
+############################# SETTINGS ###############################
+
+os=linux # linux for linux | windows for windows | osx for macos
+version=64 # 32 or 64 bit
+mono_version=true #mono version or not (true or false)
+downloaded_filename=Godot_vXX.zip
 godot_installed_path=$HOME/godot/app
 
+#####################################################################
 
-if $mono_version;
-then
-    PATH_TO_GODOT_EXECUTABLE=$godot_installed_path/[Godot_v]* #The PATH to the Godot Executable
-else
-    PATH_TO_GODOT_EXECUTABLE=$godot_installed_path #The PATH to the Godot Executable
-fi
+function run(){
 
-cd $PATH_TO_GODOT_EXECUTABLE #change to the directory where the Godot execuable is located
+    if $mono_version;
+    then
+        PATH_TO_GODOT_EXECUTABLE=$godot_installed_path/[Godot_v]* #The PATH to the Godot Executable
+    else
+        PATH_TO_GODOT_EXECUTABLE=$godot_installed_path #The PATH to the Godot Executable
+    fi
 
-GODOT_EXECUTABLE=*.$version #the godot executable will be the one that finishes with $GODOT_VERSION
+    cd $PATH_TO_GODOT_EXECUTABLE #change to the directory where the Godot execuable is located
 
-chmod +x $GODOT_EXECUTABLE #gives the permission to run
+    GODOT_EXECUTABLE=*.$version #the godot executable will be the one that finishes with $GODOT_VERSION
 
-./$GODOT_EXECUTABLE& #execute the executable and lauches it in another process
+    chmod +x $GODOT_EXECUTABLE #gives the permission to run
+
+    ./$GODOT_EXECUTABLE& #execute the executable and lauches it in another process
+
+}
+
+function install(){
+
+    #Downloads ans extracts the files
+    echo "Downloading Godot..."
+    godot_downloader.py $os $version $mono_version $downloaded_filename
+
+    #Removes the zip files and $godot_installed_path directory
+    echo "Removing the downloaded zip file..."
+    rm -f $downloaded_filename
+    echo "Replacing the old files with the new ones..."
+    rm -r $godot_installed_path
+    mkdir -p $godot_installed_path
+    #moves the file to a destination
+    mv Godot_v* $godot_installed_path
+    echo "Done!"
+
+}
+
+###### main
+
+case "$1" in
+    "")
+        run ;;
+    "install")
+        install ;;
+esac

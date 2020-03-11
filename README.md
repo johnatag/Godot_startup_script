@@ -12,23 +12,13 @@ This script will also facilitate the creation of a .desktop launcher in GNOME an
 
 ```Bash
 
-#Options in the godot_install script
+#Options in the godot script
 
 os=linux # linux for linux | windows for windows | osx for macos
 version=64 # 32 or 64 bit
 mono_version=true #mono version or not (true or false)
 downloaded_filename=Godot_vXX.zip
 godot_installed_path=$HOME/godot/app/
-
-```
-
-```Bash
-
-#Options in the godot launch script
-
-version=64 #32 or 64 bit
-mono_version=true
-godot_installed_path=$HOME/godot/app
 
 ```
 
@@ -40,12 +30,9 @@ godot_installed_path=$HOME/godot/app
 ```
 1. Modify the different settings in order to suit your needs
 
-    **!!! Make sure that different values in the launch script corresponds to the install script !!!**
-
 2. Make the different scripts executable by typing
 ```Bash
     chmod +x godot
-    chmod +x godot_install
     chmod +x godot_downloader.py
 ```
 3. Make sure that python3 is installed on your system [Install Python Guide](https://realpython.com/installing-python/)
@@ -69,7 +56,7 @@ godot_installed_path=$HOME/godot/app
 7. Execute the scripts and Have fun!
 ```Bash
 #TO INSTALL LATEST STABLE VERSION OF GODOT 
-godot_install
+godot install
 
 #TO LAUNCH GODOT 
 godot
