@@ -51,12 +51,12 @@ godot_installed_path=$HOME/godot/app
 3. Make sure that python3 is installed on your system [Install Python Guide](https://realpython.com/installing-python/)
 4. Make sure that that beautiful soup is installed (library used for web scraping) [Install Beautiful Soup Guide](https://www.pythonforbeginners.com/beautifulsoup/beautifulsoup-4-python)
 5. Make sure that tqdm is installed (for that sweet download progress bar) [Install tqdm](https://pypi.org/project/tqdm/)
-6. Add the scripts folder to your PATH (special thanks to u/Sinaazk, u/TimishTV, Charles Duffy and Usman Khan for helping me out)
+6. Add the scripts folder to your PATH (special thanks to u/Sinaazk, u/TimishTV, Charles Duffy and Usman Khan for helping me out) (Link)[https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7]
 ```Bash
     #open the nano text editor to modify the file
     nano ~/.bashrc
 
-    #Add this line at the end of the bashrc file and restart the terminal
+    #Add this line at the end of the bashrc (for linux user) for other OSes please consult the link I provided file and restart the terminal
     export PATH="$PATH:PATH/TO/THE/SCRIPTS/FOLDER"
 
 ```
