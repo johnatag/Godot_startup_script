@@ -49,6 +49,12 @@ godot_installed_path=$HOME/godot/app
     chmod +x godot_downloader.py
 ```
 3. Make sure that python3 is installed on your system [Install Python Guide](https://realpython.com/installing-python/)
+
+    **Upon further testing make sure that python3 is the "default" python by typing...**
+    ```Bash
+        sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+    ```
+
 4. Make sure that that beautiful soup is installed (library used for web scraping) [Install Beautiful Soup Guide](https://www.pythonforbeginners.com/beautifulsoup/beautifulsoup-4-python)
 5. Make sure that tqdm is installed (for that sweet download progress bar) [Install tqdm](https://pypi.org/project/tqdm/)
 6. Add the scripts folder to your PATH (special thanks to u/Sinaazk, u/TimishTV, Charles Duffy and Usman Khan for helping me out) [Link](https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7)
