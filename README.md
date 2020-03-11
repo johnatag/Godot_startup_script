@@ -34,20 +34,40 @@ godot_installed_path=$HOME/godot/app
 
 ## Steps for making the scripts work:
 
+0. Download the repo somewhere in your system
+```Bash
+    git clone https://github.com/johnatangao/Godot_startup_script
+```
 1. Modify the different settings in order to suit your needs
 
-**!!! Make sure that different values in the launch script corresponds to the install script !!!**
+    **!!! Make sure that different values in the launch script corresponds to the install script !!!**
 
 2. Make the different scripts executable by typing
 ```Bash
     chmod +x godot
     chmod +x godot_install
+    chmod +x godot_downloader.py
 ```
 3. Make sure that python3 is installed on your system [Install Python Guide](https://realpython.com/installing-python/)
 4. Make sure that that beautiful soup is installed (library used for web scraping) [Install Beautiful Soup Guide](https://www.pythonforbeginners.com/beautifulsoup/beautifulsoup-4-python)
 5. Make sure that tqdm is installed (for that sweet download progress bar) [Install tqdm](https://pypi.org/project/tqdm/)
-6. I still did not find a way to execute the script globally :(
-7. Execute the script and Have fun!
+6. Add the scripts folder to your PATH (special thanks to u/Sinaazk, u/TimishTV, Charles Duffy and Usman Khan for helping me out)
+```Bash
+    #open the nano text editor to modify the file
+    nano ~/.bashrc
+
+    #Add this line at the end of the bashrc file and restart the terminal
+    export PATH="$PATH:PATH/TO/THE/SCRIPTS/FOLDER"
+
+```
+7. Execute the scripts and Have fun!
+```Bash
+#TO INSTALL LATEST VERSION OF GODOT TYPE IN YOUR TERMINAL
+godot_install
+
+#TO LAUNCH GODOT TYPE IN YOUR TERMINAL
+godot
+```
 
 
 
