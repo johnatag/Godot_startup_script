@@ -10,7 +10,7 @@ godot_installed_path=$HOME/godot/app
 
 #####################################################################
 
-function run(){
+run(){
 
     if $mono_version;
     then
@@ -23,13 +23,13 @@ function run(){
 
     GODOT_EXECUTABLE=*.$version #the godot executable will be the one that finishes with $GODOT_VERSION
 
-    chmod +x $GODOT_EXECUTABLE #gives the permission to run
+   chmod +x $GODOT_EXECUTABLE #gives the permission to run
 
-    ./$GODOT_EXECUTABLE& #execute the executable and lauches it in another process
+   ./$GODOT_EXECUTABLE& #execute the executable and lauches it in another process
 
 }
 
-function install(){
+install(){
 
     #Downloads ans extracts the files
     echo "Downloading Godot..."
@@ -51,7 +51,7 @@ function install(){
 
 case "$1" in
     "")
-        run ;;
+        run ;; 
     "install")
-        install ;;
+        install ;; 
 esac
