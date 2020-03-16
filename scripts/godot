@@ -1,12 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 ############################# SETTINGS ###############################
 
-os=linux # linux for linux | windows for windows | osx for macos
-version=64 # 32 or 64 bit
-mono_version=true #mono version or not (true or false)
-downloaded_filename=Godot_vXX.zip
 godot_installed_path=$HOME/godot/app
+downloaded_filename=Godot.zip
 
 #####################################################################
 
@@ -31,6 +28,24 @@ run(){
 
 install(){
 
+    UNAME=$( command -v uname)
+
+    case $( "${UNAME}" | tr '[:upper:]' '[:lower:]') in
+        linux*)
+            os=linux ;;
+        darwin*)
+            os=osx ;;
+        msys*|cygwin*|mingw*)
+        # or possible 'bash on windows'
+            os=windows ;;
+        nt|win*)
+            os=windows ;;
+        *)
+            os=windows ;;
+    esac
+
+    version=`getconf LONG_BIT` #32 or 64 bit
+
     #Downloads ans extracts the files
     echo "Downloading Godot..."
     godot_downloader.py $os $version $mono_version $downloaded_filename
@@ -47,11 +62,65 @@ install(){
 
 }
 
+create-linux-launcher(){
+
+    DIR=~/.local/share/applications
+    FILE=godot.desktop
+
+    if [[ -f "$DIR/$FILE" ]]; then
+        echo "Desktop launcher already created in $DIR/$FILE"
+    else
+        touch $DIR/$FILE
+        echo -e "[Desktop Entry]\nName=Godot Engine\nExec=$HOME/git/Godot_startup_script/scripts/godot\nComment=A FOSS Multi-platform 2D and 3D game engine\nTerminal=false\nIcon=$HOME/godot/512px-Godot_icon.svg\nType=Application" > $DIR/$FILE
+    fi
+}
+
+create-osx-launcher(){
+
+    echo "WIP"
+
+}
+
+
+create-windows-launcher(){
+    
+    echo "WIP"
+
+}
+
+launcher(){
+
+    UNAME=$( command -v uname)
+
+    case $( "${UNAME}" | tr '[:upper:]' '[:lower:]') in
+        linux*)
+            create-linux-launcher ;;
+        darwin*)
+            create-osx-launcher ;;
+        msys*|cygwin*|mingw*)
+        # or possible 'bash on windows'
+            create-windows-launcher ;;
+        nt|win*)
+            create-windows-launcher ;;
+        *)
+            create-windows-launcher ;;
+    esac
+
+}
+
 ###### main
 
 case "$1" in
     "")
         run ;; 
     "install")
+        if [[ $2==mono ]];
+        then
+            mono_version=true
+        else
+            mono_version=false
+        fi
         install ;; 
+    "launcher")
+        launcher ;; 
 esac
