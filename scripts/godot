@@ -58,6 +58,9 @@ install(){
     mkdir -p $godot_installed_path
     #moves the file to a destination
     mv Godot_v* $godot_installed_path
+
+    launcher # Automatically creates a launcher
+
     echo "Done!"
 
 }
@@ -67,11 +70,14 @@ create-linux-launcher(){
     DIR=~/.local/share/applications
     FILE=godot.desktop
 
+    ICON_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd )"
+
+
     if [[ -f "$DIR/$FILE" ]]; then
         echo "Desktop launcher already created in $DIR/$FILE"
     else
         touch $DIR/$FILE
-        echo -e "[Desktop Entry]\nName=Godot Engine\nExec=$HOME/git/Godot_startup_script/scripts/godot\nComment=A FOSS Multi-platform 2D and 3D game engine\nTerminal=false\nIcon=$HOME/godot/512px-Godot_icon.svg\nType=Application" > $DIR/$FILE
+        echo -e "[Desktop Entry]\nName=Godot Engine\nExec=$HOME/git/Godot_startup_script/scripts/godot\nComment=A FOSS Multi-platform 2D and 3D game engine\nTerminal=false\nIcon=$ICON_DIR/512px-Godot_icon.svg\nType=Application" > $DIR/$FILE
     fi
 }
 
@@ -120,7 +126,7 @@ case "$1" in
         else
             mono_version=false
         fi
-        install ;; 
+        install ;;
     "launcher")
-        launcher ;; 
+        launcher ;;
 esac
