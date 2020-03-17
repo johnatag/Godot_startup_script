@@ -9,6 +9,8 @@ downloaded_filename=Godot.zip
 
 run(){
 
+    version=`getconf LONG_BIT` #32 or 64 bit
+
     if $mono_version;
     then
         PATH_TO_GODOT_EXECUTABLE=$godot_installed_path/[Godot_v]* #The PATH to the Godot Executable
@@ -19,8 +21,7 @@ run(){
     cd $PATH_TO_GODOT_EXECUTABLE #change to the directory where the Godot execuable is located
 
     GODOT_EXECUTABLE=*.$version #the godot executable will be the one that finishes with $GODOT_VERSION
-
-   chmod +x $GODOT_EXECUTABLE #gives the permission to run
+    chmod +x $GODOT_EXECUTABLE #gives the permission to run
 
    ./$GODOT_EXECUTABLE& #execute the executable and lauches it in another process
 
